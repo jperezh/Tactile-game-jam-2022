@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4862110123852731940, guid: 64c0578870f4cf14d8417750a1b25c92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.57
+      value: -3.5699997
       objectReference: {fileID: 0}
     - target: {fileID: 4862110123852731940, guid: 64c0578870f4cf14d8417750a1b25c92, type: 3}
       propertyPath: m_LocalPosition.z
@@ -876,15 +876,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4862110123852731940, guid: 64c0578870f4cf14d8417750a1b25c92, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4862110123852731940, guid: 64c0578870f4cf14d8417750a1b25c92, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4862110123852731940, guid: 64c0578870f4cf14d8417750a1b25c92, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4862110123852731940, guid: 64c0578870f4cf14d8417750a1b25c92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1701,6 +1701,10 @@ PrefabInstance:
       propertyPath: magnetController
       value: 
       objectReference: {fileID: 1289895205}
+    - target: {fileID: 434927757705715733, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.449
+      objectReference: {fileID: 0}
     - target: {fileID: 1981120450979825661, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1753,6 +1757,10 @@ PrefabInstance:
       propertyPath: magnetController
       value: 
       objectReference: {fileID: 1289895205}
+    - target: {fileID: 2374900244626124298, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.49
+      objectReference: {fileID: 0}
     - target: {fileID: 4597399822425393577, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: craneController
       value: 
@@ -1769,6 +1777,14 @@ PrefabInstance:
       propertyPath: magnetController
       value: 
       objectReference: {fileID: 1289895205}
+    - target: {fileID: 6868699576652855255, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868699576652855255, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.013
+      objectReference: {fileID: 0}
     - target: {fileID: 7078418058848010291, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: craneController
       value: 

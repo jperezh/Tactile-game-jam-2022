@@ -34,7 +34,7 @@ Transform:
   - {fileID: 5049984822585090302}
   - {fileID: 5049984823258062435}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5049984822048257517
 MonoBehaviour:
@@ -51,7 +51,7 @@ MonoBehaviour:
   forceField: {fileID: 5049984822585090298}
   magneticStreng: -400
   magneticDamping: 45
-  magnetRigidbody: {fileID: 5049984822048257518}
+  particlePivot: {fileID: 5485950578828597452}
 --- !u!50 &5049984822048257518
 Rigidbody2D:
   serializedVersion: 4
@@ -490,5 +490,10 @@ PrefabInstance:
 --- !u!4 &2058683837206328408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1265254195674822089, guid: e8d998e4c01db6a4baff2c6f0b835f86, type: 3}
+  m_PrefabInstance: {fileID: 945474404463165841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5485950578828597452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4700910332408568157, guid: e8d998e4c01db6a4baff2c6f0b835f86, type: 3}
   m_PrefabInstance: {fileID: 945474404463165841}
   m_PrefabAsset: {fileID: 0}
