@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9126982948732200585}
   - component: {fileID: 9126982948732200586}
-  - component: {fileID: 9126982948732200587}
   m_Layer: 0
-  m_Name: ShapeSpawner
+  m_Name: ShapeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5efb004d151743998153bb4221af5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {fileID: 9126982948732200587}
+  spawnDuration: 1
+  throwDirection: {x: -1.5, y: 3}
+  maxTorque: 20
+  minForce: 5
+  maxForce: 8
   blockPrefabs:
   - {fileID: 6386448534974738789, guid: cc926ce79834e4bbd84787036eacc646, type: 3}
   - {fileID: 6386448534974738789, guid: 5228c8ca1fab04bba82f2eee84f429a1, type: 3}
@@ -53,30 +56,3 @@ MonoBehaviour:
   - {fileID: 6386448534974738789, guid: 0acad25c498984d36a8a6f22b62726b4, type: 3}
   - {fileID: 6386448534974738789, guid: 50c4222801af447e9a608d14ecef2558, type: 3}
   - {fileID: 6386448534974738789, guid: bef5873bb61ee4fe5a3b098318ac6e52, type: 3}
-  spawnDuration: 1
---- !u!61 &9126982948732200587
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9126982948732200588}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 48, y: 5}
-  m_EdgeRadius: 0

@@ -8,9 +8,9 @@ public class Water : MonoBehaviour
     private float startTime;
     public bool IsRising => Time.time - startTime > timeBeforeRisingStarts;
 
-    public void Initialize(float startTime)
+    private void Start()
     {
-        this.startTime = startTime;
+        startTime = Time.time;
     }
 
     private void Update()
