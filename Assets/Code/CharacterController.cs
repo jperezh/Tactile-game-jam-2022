@@ -9,6 +9,7 @@ namespace Code
         [SerializeField] private float groundingRaycastDistance = 5f;
         [SerializeField] private float jumpCooldown = 0.5f;
         [SerializeField] private float moveForce = 1f;
+        [SerializeField] private float maxVelocity = 10f;
 
         private const string GROUND_LAYER = "Ground";
         
@@ -35,7 +36,10 @@ namespace Code
 
         private void ClampVelocity()
         {
-            // rigidbody.velocity.
+            var horizontalVelocity = rigidbody.velocity.x;
+            horizontalVelocity = Mathf.Clamp(horizontalVelocity, -maxVelocity, maxVelocity);
+
+            rigidbody.velocity = new Vector2(horizontalVelocity, rigidbody.velocity.y);
         }
 
         private void AddHorizontalForce()
