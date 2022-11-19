@@ -1380,6 +1380,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 67451088720180173, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 67451088720180173, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 186647569309751863, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: craneController
       value: 
@@ -1464,6 +1472,14 @@ PrefabInstance:
       propertyPath: magnetController
       value: 
       objectReference: {fileID: 1289895205}
+    - target: {fileID: 7172258414798189771, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_Size.x
+      value: 21.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172258414798189771, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_Size.y
+      value: 4.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7679045522289155358, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: craneController
       value: 
