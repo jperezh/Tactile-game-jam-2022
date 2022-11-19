@@ -66,13 +66,13 @@ namespace Code.TeamSelector
         {
             isCountingDown = true;
             countdownTimer = COUNTDOWN_TIME;
-            countdownTimerText.gameObject.SetActive(true);
+            countdownTimerText.text = Mathf.CeilToInt(countdownTimer).ToString();
         }
 
         private void OnStartGamePressEnded()
         {
             isCountingDown = false;
-            countdownTimerText.gameObject.SetActive(false);
+            countdownTimerText.text = "";
         }
 
         private void OnPlayerEntered(PlayerInput playerInput, Team team)
