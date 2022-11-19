@@ -1,16 +1,27 @@
+using System;
 using UnityEngine;
 
 public class Water : MonoBehaviour
 {
     [SerializeField] private float timeBeforeRisingStarts = 60f;
     [SerializeField] private float risePerMinute = 1f;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    
+    private static readonly int visibility = Shader.PropertyToID("_Visibility");
 
     private float startTime;
+    private float height;
+    private float top;
+    private float bottom;
     public bool IsRising => Time.time - startTime > timeBeforeRisingStarts;
 
     private void Start()
     {
         startTime = Time.time;
+        spriteRenderer.material.SetFloat(visibility, 0f);
+        
+        top = spriteRenderer.transform.position.y + ((spriteRenderer.sprite.texture.height / spriteRenderer.sprite.pixelsPerUnit ) / 2f) * transform.localScale.y;
+        bottom = spriteRenderer.transform.position.y - ((spriteRenderer.sprite.texture.height / spriteRenderer.sprite.pixelsPerUnit ) / 2f) * transform.localScale.y;
     }
 
     private void Update()
@@ -23,25 +34,28 @@ public class Water : MonoBehaviour
 
     private void Rise()
     {
-        var currentHeight = transform.localScale.y;
         var heightIncrease = (risePerMinute / 60f) * Time.deltaTime;
-
-        SetHeight(currentHeight + heightIncrease);
+        SetHeight(height + heightIncrease);
     }
 
     private void SetHeight(float height)
     {
-        var scale = transform.localScale;
-        var bottom = transform.localPosition.y - scale.y / 2f;
-                     
-        transform.localScale = new Vector3(scale.x, height, scale.z);
+        var percentageToFill = (GetLevel() - bottom) / (top - bottom);
 
-        var localPosition = transform.localPosition;
-        transform.localPosition = new Vector3(localPosition.x, bottom + height / 2f, localPosition.z);
+        spriteRenderer.material.SetFloat(visibility, percentageToFill);
+
+        this.height = height;
     }
 
     public float GetLevel()
     {
-        return (transform.localScale.y / 2f) + transform.position.y;
+        return bottom + height;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        float level = GetLevel();
+        Gizmos.DrawLine(new Vector3(-100f, level, 0f), new Vector3(100f, level, 0f));
     }
 }
