@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Haptics;
 
 namespace Code
 {
@@ -58,6 +61,13 @@ namespace Code
         private void Update()
         {
             if (!isSpawned) return;
+
+            bool isGrounded = IsGrounded();
+
+            if (isGrounded && !wasGrounded)
+            {
+                //
+            }
             
             if (IsGrounded() && !IsJumpInCooldown() && controls.InGame.Jump.WasPerformedThisFrame())
             {
@@ -67,6 +77,23 @@ namespace Code
 
             AddHorizontalForce();
             ClampVelocity();
+
+            wasGrounded = isGrounded;
+        }
+
+        public void Rumble(float duration, float lowFrequencyNormalizedSpeed, float highFrequencyNormalizedSpeed)
+        {
+            StartCoroutine(RumbleCoroutine(duration, lowFrequencyNormalizedSpeed, highFrequencyNormalizedSpeed));
+        }
+
+        private IEnumerator RumbleCoroutine(float duration, float lowFrequencyNormalizedSpeed, float highFrequencyNormalizedSpeed)
+        {
+            var rumbleDevice = playerInput.devices.FirstOrDefault(d => d is IDualMotorRumble) as IDualMotorRumble;
+            if (rumbleDevice == null) yield break;
+
+            rumbleDevice.SetMotorSpeeds(lowFrequencyNormalizedSpeed, highFrequencyNormalizedSpeed);
+            yield return new WaitForSecondsRealtime(duration);
+            rumbleDevice.ResetHaptics();
         }
 
         private void ClampVelocity()

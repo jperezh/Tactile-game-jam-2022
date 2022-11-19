@@ -95,13 +95,20 @@ namespace Code.TeamSelector
                 warmTeamPlayers.Add(playerInput);
                 Color color = GetUnusedWarmColor();
                 character.Color = color;
+                RumbleOnColorAssigned(character);
             }
             else
             {
                 coldTeamPlayers.Add(playerInput);
                 Color color = GetUnusedColdColor();
                 character.Color = color;
+                RumbleOnColorAssigned(character);
             }
+        }
+
+        private void RumbleOnColorAssigned(Character character)
+        {
+            character.Rumble(0.1f, 0f, 0.75f);
         }
 
         private Color GetUnusedWarmColor()
