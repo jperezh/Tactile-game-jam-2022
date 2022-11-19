@@ -12,8 +12,6 @@ public class GroundRumbler : MonoBehaviour
         if (col.GetComponent<Block>() == null) return;
 
         var fallingSpeed = col.attachedRigidbody.velocity.y;
-
-        Debug.Log("Falling speed: " + fallingSpeed);
         
         var lowFrequencySpeed = lowFrequencyRumbleCurve.Evaluate(fallingSpeed);
         var highFrequencySpeed = highFrequencyRumbleCurve.Evaluate(fallingSpeed);
