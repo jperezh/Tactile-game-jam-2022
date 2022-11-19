@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "Controls",
     "maps": [
         {
             "name": "In-Game",
@@ -18,8 +18,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "5cb84c70-2827-4471-921b-1f4a97114633",
-                    "path": "",
+                    "id": "db33e12d-ea32-4ec6-bba9-52f4032bc1e0",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -30,17 +30,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }
