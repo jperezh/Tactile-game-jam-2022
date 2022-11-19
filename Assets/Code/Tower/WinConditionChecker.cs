@@ -34,6 +34,7 @@ public class WinConditionChecker : MonoBehaviour
 
     private void OnWarmOccupied()
     {
+        Debug.Log("occupied");
         warmOccupied = true;
         warmWinTimer = WIN_TIME;
     }
@@ -65,10 +66,5 @@ public class WinConditionChecker : MonoBehaviour
                 ColdHadWon = true;
             }
         }
-    }
-
-    private void HasWon()
-    {
-        
     }
 }
