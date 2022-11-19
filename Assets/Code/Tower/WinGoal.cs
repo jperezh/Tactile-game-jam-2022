@@ -12,7 +12,7 @@ public class WinGoal : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var block = other.gameObject.GetComponent<Block>();
+        var block = other.gameObject.GetComponentInParent<Block>();
         if (block != null)
         {
             if (!Blocks.Any())
@@ -25,7 +25,7 @@ public class WinGoal : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        var block = other.gameObject.GetComponent<Block>();
+        var block = other.gameObject.GetComponentInParent<Block>();
         if (block != null)
         {
             Blocks.Remove(block);
