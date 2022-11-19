@@ -4,12 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ControlButton : MonoBehaviour
 {
+    public static event Action<bool> TriggerStateChange;
+    
     [SerializeField] private MagnetActions buttonAction;
     [SerializeField] private CraneController craneController;
     [SerializeField] private MagnetController magnetController;
     [SerializeField] private GameObject activePivot;
     [SerializeField] private GameObject inactivePivot;
-    
+
     private void OnTriggerStay2D(Collider2D col) {
         MoveMagnet();
     }
@@ -17,11 +19,13 @@ public class ControlButton : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         activePivot.SetActive(false);
         inactivePivot.SetActive(true);
+        TriggerStateChange?.Invoke(true);
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         activePivot.SetActive(true);
         inactivePivot.SetActive(false);
+        TriggerStateChange?.Invoke(false);
     }
 
     private void MoveMagnet() {

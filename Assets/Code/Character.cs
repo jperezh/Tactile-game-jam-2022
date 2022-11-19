@@ -17,6 +17,8 @@ namespace Code
         [SerializeField] private float jumpCooldown = 0.5f;
         [SerializeField] private float moveForce = 1f;
         [SerializeField] private float maxVelocity = 10f;
+        [SerializeField] private AudioClip[] jumpClips;
+        
 
         private const string GROUND_LAYER = "Ground";
         private const string CHARACTER_LAYER = "Character";
@@ -27,7 +29,8 @@ namespace Code
         private float lastTimeJumped;
         private bool isSpawned;
         private Animator animator;
-
+        private AudioSource audioSource;
+        
         public AnimatorController AnimatorController
         {
             get
@@ -44,6 +47,7 @@ namespace Code
         {
             DontDestroyOnLoad(gameObject);
 
+            audioSource = GetComponent<AudioSource>();
             animator = GetComponentInChildren<Animator>();
             controls = new Controls();
             controls.Enable();
@@ -152,6 +156,7 @@ namespace Code
         private void Jump()
         {
             rigidbody.AddForce(Vector2.up * jumpForce);
+            audioSource.PlayOneShot(jumpClips[Random.Range(0, jumpClips.Length)]);
         }
 
         private void OnDrawGizmos()
