@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5049984822048257516}
   - component: {fileID: 5049984822048257517}
-  - component: {fileID: 5049984822048257518}
+  - component: {fileID: 1289895206}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 5049984822585090302}
   - {fileID: 5049984823258062435}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5049984822048257517
 MonoBehaviour:
@@ -49,10 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceField: {fileID: 5049984822585090298}
-  magneticStreng: -400
+  magneticStreng: -500
   magneticDamping: 45
   particlePivot: {fileID: 5485950578828597452}
---- !u!50 &5049984822048257518
+--- !u!50 &1289895206
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -60,12 +60,12 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049984822048257507}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 100
+  m_LinearDrag: 2.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -100,8 +100,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049984822585090301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0287, y: -2.0187, z: 0}
-  m_LocalScale: {x: 1.7186435, y: 4.9422526, z: 1}
+  m_LocalPosition: {x: -0.0287, y: -1.64, z: 0}
+  m_LocalScale: {x: 5.78, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5049984822048257516}
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18039215, g: 0.83039224, b: 0.94509804, a: 0.2627451}
+  m_Color: {r: 0.18039215, g: 0.83039224, b: 0.94509804, a: 0.105882354}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -200,7 +200,7 @@ PointEffector2D:
   m_ForceMagnitude: 0
   m_ForceVariation: 0
   m_DistanceScale: 1
-  m_ForceSource: 0
+  m_ForceSource: 1
   m_ForceTarget: 0
   m_ForceMode: 2
   m_Drag: 0
@@ -222,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5049984823258062435
 Transform:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 5049984823717083639}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34, y: 0.34, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2058683837206328408}
