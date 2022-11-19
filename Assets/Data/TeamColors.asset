@@ -12,13 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9eac36222f884e6db687221073d62c8, type: 3}
   m_Name: TeamColors
   m_EditorClassIdentifier: 
-  warmTeamColors:
-  - {r: 1, g: 0.5330188, b: 0.5330188, a: 1}
-  - {r: 1, g: 0.80226684, b: 0.53333336, a: 1}
-  - {r: 1, g: 0.9980055, b: 0.53333336, a: 1}
-  - {r: 0.6886792, g: 0.35007426, b: 0.2891153, a: 1}
-  coldTeamColors:
-  - {r: 0.514151, g: 0.6002527, b: 1, a: 1}
-  - {r: 0.5137255, g: 0.9857168, b: 1, a: 1}
-  - {r: 0.5137255, g: 1, b: 0.7212503, a: 1}
-  - {r: 0.7643516, g: 0.5137255, b: 1, a: 1}
+  blueTeamAnimatorControllers:
+  - {fileID: 9100000, guid: 22f349ed8e5114a03a1c90cae45e8b9a, type: 2}
+  - {fileID: 9100000, guid: 40bd72969c9df46fdb5f4c17cc26c714, type: 2}
+  redTeamAnimatorControllers:
+  - {fileID: 9100000, guid: 1e00bdf35096948489a63e39bdfd9da9, type: 2}
+  - {fileID: 9100000, guid: f4afc376f686b4bf691647ac136904e0, type: 2}

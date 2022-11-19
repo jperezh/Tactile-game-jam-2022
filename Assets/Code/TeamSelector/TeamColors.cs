@@ -1,20 +1,22 @@
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TeamColors")]
 public class TeamColors : ScriptableObject
 {
-    [SerializeField] private List<Color> warmTeamColors;
-    [SerializeField] private List<Color> coldTeamColors;
+
+    [SerializeField] private List<AnimatorController> blueTeamAnimatorControllers;
+    [SerializeField] private List<AnimatorController> redTeamAnimatorControllers;
 
 
-    public List<Color> WarmTeamColors
+    public List<AnimatorController> BlueTeamAnimatorControllers
     {
-        get => warmTeamColors;
+        get => blueTeamAnimatorControllers;
     }
 
-    public List<Color> ColdTeamColors
+    public List<AnimatorController> RedTeamAnimatorControllers
     {
-        get => coldTeamColors;
+        get => redTeamAnimatorControllers;
     }
 }

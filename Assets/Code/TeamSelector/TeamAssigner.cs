@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -93,15 +94,15 @@ namespace Code.TeamSelector
             if (team == Team.Warm)
             {
                 warmTeamPlayers.Add(playerInput);
-                Color color = GetUnusedWarmColor();
-                character.Color = color;
+                AnimatorController animatorController = GetUnusedWarmColor();
+                character.AnimatorController = animatorController;
                 RumbleOnColorAssigned(character);
             }
             else
             {
                 coldTeamPlayers.Add(playerInput);
-                Color color = GetUnusedColdColor();
-                character.Color = color;
+                AnimatorController animatorController = GetUnusedColdColor();
+                character.AnimatorController = animatorController;
                 RumbleOnColorAssigned(character);
             }
         }
@@ -111,17 +112,17 @@ namespace Code.TeamSelector
             character.Rumble(0.1f, 0f, 0.75f);
         }
 
-        private Color GetUnusedWarmColor()
+        private AnimatorController GetUnusedWarmColor()
         {
             var warmCharacters = warmTeamPlayers.Select(p => p.GetComponent<Character>());
-            var unusedColor = teamColors.WarmTeamColors.First(color => warmCharacters.All(c => c.Color != color));
+            var unusedColor = teamColors.RedTeamAnimatorControllers.First(ac => warmCharacters.All(c => c.AnimatorController != ac));
             return unusedColor;
         }
         
-        private Color GetUnusedColdColor()
+        private AnimatorController GetUnusedColdColor()
         {
             var coldCharacters = coldTeamPlayers.Select(p => p.GetComponent<Character>());
-            var unusedColor = teamColors.ColdTeamColors.First(color => coldCharacters.All(c => c.Color != color));
+            var unusedColor = teamColors.BlueTeamAnimatorControllers.First(ac => coldCharacters.All(c => c.AnimatorController != ac));
             return unusedColor;
         }
     }

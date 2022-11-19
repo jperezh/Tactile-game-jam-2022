@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Linq;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Haptics;
+using Object = UnityEngine.Object;
 
 namespace Code
 {
@@ -20,28 +22,31 @@ namespace Code
 
         private const string GROUND_LAYER = "Ground";
         private const string CHARACTER_LAYER = "Character";
+        private static readonly int IsRunning = Animator.StringToHash("IsRunning");
         
         private Controls controls;
         private bool wasGrounded;
         private float lastTimeJumped;
         private bool isSpawned;
+        private Animator animator;
 
-        public Color Color
+        public AnimatorController AnimatorController
         {
             get
             {
-                return GetComponentInChildren<SpriteRenderer>().color;
+                return (AnimatorController) GetComponentInChildren<Animator>().runtimeAnimatorController;
             }
             set
             {
-                GetComponentInChildren<SpriteRenderer>().color = value;
+                GetComponentInChildren<Animator>().runtimeAnimatorController = value;
             }
         }
 
         private void Start()
         {
             DontDestroyOnLoad(gameObject);
-            
+
+            animator = GetComponentInChildren<Animator>();
             controls = new Controls();
             controls.Enable();
             playerInput.user.AssociateActionsWithUser(controls);
@@ -83,6 +88,16 @@ namespace Code
         {
             AddHorizontalForce();
             ClampVelocity();
+            UpdateAnimator();
+        }
+
+        private void UpdateAnimator()
+        {
+            var velocityMagnitude = rigidbody.velocity.magnitude;
+            var inputValue = controls.InGame.Move.ReadValue<float>();
+            
+            var isRunning = inputValue != 0 || velocityMagnitude >= 1f;
+            animator.SetBool(IsRunning, isRunning);
         }
 
         public void Rumble(float duration, float lowFrequencyNormalizedSpeed, float highFrequencyNormalizedSpeed)
