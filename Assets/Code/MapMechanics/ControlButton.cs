@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class ControlButton : MonoBehaviour
@@ -8,9 +7,21 @@ public class ControlButton : MonoBehaviour
     [SerializeField] private MagnetActions buttonAction;
     [SerializeField] private CraneController craneController;
     [SerializeField] private MagnetController magnetController;
-
+    [SerializeField] private GameObject activePivot;
+    [SerializeField] private GameObject inactivePivot;
+    
     private void OnTriggerStay2D(Collider2D col) {
         MoveMagnet();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        activePivot.SetActive(true);
+        inactivePivot.SetActive(false);
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        activePivot.SetActive(false);
+        inactivePivot.SetActive(true);
     }
 
     private void MoveMagnet() {
