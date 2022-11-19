@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class FakeRopeManager : MonoBehaviour
 {
-    [SerializeField] private bool stopUpdate;
-    [SerializeField] private bool useQuaternion;
     [SerializeField] private float heightGap;
+    [Range(10, 50)] 
     [SerializeField] private float defaultLerpSpeed;
+
+    [SerializeField] private Vector2 positionXLimits;
 
     [SerializeField] private Transform[] joints;
     [SerializeField] private Transform magnet;
@@ -20,10 +21,9 @@ public class FakeRopeManager : MonoBehaviour
 
     private void Update()
     {
-        if (!stopUpdate || Input.GetKeyDown(KeyCode.Q))
-        {
-            CalculateJointPositions();
-        }
+        LimitPosition();
+
+        CalculateJointPositions();
     }
 
     private void CalculateJointPositions()
@@ -35,36 +35,35 @@ public class FakeRopeManager : MonoBehaviour
             previousJointPosition = i == 0 ? transform.position : joints[i - 1].position;
 
             joints[i].position = CalculatePosition(joints[i].position, previousJointPosition);
-
         }
-        
+
         magnet.position = CalculatePosition(magnet.position, joints[joints.Length - 1].position);
     }
 
     private Vector3 CalculatePosition(Vector3 currentPos, Vector3 previousJointPosition)
     {
         var directionToPreviousJoint = previousJointPosition - currentPos;
-        Debug.DrawRay(previousJointPosition, directionToPreviousJoint, Color.black);
-        
+
         var result = currentPos + (directionToPreviousJoint * (defaultLerpSpeed * Time.deltaTime));
         result.y = previousJointPosition.y - heightGap;
 
         return result;
     }
-    
-    // if (i == joints.Length - 1)
-    // {
-    //     var direction = joints[i].position - previousJointPosition;
-    //     var lookAtPosition = joints[i].position + direction;
-    //
-    //
-    //     if (!useQuaternion)
-    //     {
-    //         joints[i].LookAt(lookAtPosition, testWorldUp);
-    //     }
-    //     else
-    //     {
-    //         joints[i].rotation = Quaternion.LookRotation(lookAtPosition, testWorldUp);
-    //     }
-    // }
+
+    private void LimitPosition()
+    {
+        if (transform.position.x < positionXLimits.x)
+        {
+            var limitedPos = transform.position;
+            limitedPos.x = positionXLimits.x;
+            transform.position = limitedPos;
+        }
+
+        if (transform.position.x > positionXLimits.y)
+        {
+            var limitedPos = transform.position;
+            limitedPos.x = positionXLimits.y;
+            transform.position = limitedPos;
+        }
+    }
 }
