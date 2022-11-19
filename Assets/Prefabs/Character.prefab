@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 2783430181627184569}
   playerInput: {fileID: 132907484}
-  jumpForce: 1000
+  jumpForce: 1500
   groundingRaycastDistance: 1
   jumpCooldown: 0.5
   moveForce: 50

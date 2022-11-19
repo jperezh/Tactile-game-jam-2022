@@ -20,10 +20,16 @@ public class ControlButton : MonoBehaviour
                 magnetController.Right();
                 break;
             case MagnetActions.MoveUp:
-                magnetController.Left();
+                magnetController.Up();
                 break;
             case MagnetActions.MoveDown:
                 magnetController.Down();
+                break;
+            case MagnetActions.On:
+                magnetController.OnOff(true);
+                break;
+            case MagnetActions.Off:
+                magnetController.OnOff(false);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
