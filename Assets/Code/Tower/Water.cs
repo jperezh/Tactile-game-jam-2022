@@ -6,6 +6,7 @@ public class Water : MonoBehaviour
     [SerializeField] private float timeBeforeRisingStarts = 60f;
     [SerializeField] private float risePerMinute = 1f;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Transform wavesVisual;
     
     private static readonly int visibility = Shader.PropertyToID("_Visibility");
 
@@ -36,6 +37,12 @@ public class Water : MonoBehaviour
     {
         var heightIncrease = (risePerMinute / 60f) * Time.deltaTime;
         SetHeight(height + heightIncrease);
+        
+        wavesVisual.gameObject.SetActive(true);
+        wavesVisual.transform.position = new Vector3(
+            wavesVisual.transform.position.x,
+            GetLevel(),
+            wavesVisual.transform.position.z);
     }
 
     private void SetHeight(float height)
