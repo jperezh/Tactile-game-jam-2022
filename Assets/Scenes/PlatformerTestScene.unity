@@ -1694,6 +1694,30 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8877626613479712648, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877626613479712648, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877626613479712648, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877626613479712648, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877626613479712648, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877626613479712648, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8877626613700837537, guid: ec366d6ec125bee468d47c7138708abf, type: 3}
       propertyPath: m_Name
       value: Background
