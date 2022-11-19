@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class ControlButton : MonoBehaviour
 {
     [SerializeField] private MagnetActions buttonAction;
+    [SerializeField] private CraneController craneController;
     [SerializeField] private MagnetController magnetController;
 
     private void OnTriggerStay2D(Collider2D col) {
@@ -14,16 +16,16 @@ public class ControlButton : MonoBehaviour
     private void MoveMagnet() {
         switch (buttonAction) {
             case MagnetActions.MoveLeft:
-                magnetController.Left();
+                craneController.Left();
                 break;
             case MagnetActions.MoveRight:
-                magnetController.Right();
+                craneController.Right();
                 break;
             case MagnetActions.MoveUp:
-                magnetController.Up();
+                craneController.Up();
                 break;
             case MagnetActions.MoveDown:
-                magnetController.Down();
+                craneController.Down();
                 break;
             case MagnetActions.On:
                 magnetController.OnOff(true);
