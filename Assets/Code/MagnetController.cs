@@ -5,77 +5,46 @@ using UnityEngine;
 
 public class MagnetController : MonoBehaviour
 {
+    [SerializeField] float moveSpeedHorizontal = 10f;
+    [SerializeField] float moveSpeedVertical = 10f;
+    [SerializeField] PointEffector2D forceField;
+    [SerializeField] float magneticStreng = -100;
+    [SerializeField] private Rigidbody2D magnetRigidbody;
     bool isOn;
 
     public void Left()
     {
-        Debug.Log("Left");
+        magnetRigidbody.AddForce(Vector2.left * moveSpeedHorizontal);
     }
 
     public void Right()
     {
-        Debug.Log("Right");
+        magnetRigidbody.AddForce(Vector2.right * moveSpeedHorizontal);
     }
 
     public void Up()
     {
-        Debug.Log("Up");
+        magnetRigidbody.AddForce(Vector2.up * moveSpeedVertical);
     }
 
     public void Down()
     {
-        Debug.Log("Down");
+        magnetRigidbody.AddForce(Vector2.down * moveSpeedVertical);
     }
 
-    public void Swith(bool isOn)
+    public void OnOff(bool isOn)
     {
         isOn = !isOn;
+        if (isOn)
+        {
+            forceField.forceMagnitude = magneticStreng;
+        }
+
+        else
+        {
+            forceField.forceMagnitude = 0;
+        }
         Debug.Log("Is On? " + isOn);
     }
-
-
-    // [SerializeField] float moveSpeed = 1f;
-    // [SerializeField] Effector2D forceField;
-
-    // Vector2 moveInput;
-    // bool isOn;
-
-    // private void OnEnable()
-    // {
-    //     if (inputSys == null)
-    //     {
-    //         inputSys  = new InputSystem();
-    //         inputSys.Magnet.Movement.performed += Movement;
-    //         inputSys.Magnet.Switch.started += Switch;
-    //     }
-    //     inputSys.Enable();
-
-    // }
-
-    // private void Movement(InputAction.CallbackContext context)
-    // {
-    //     moveInput = context.ReadValue<Vector2>().normalized;
-    // }
-
-    // private void Switch(InputAction.CallbackContext context)
-    // {
-    //     isOn = !isOn;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     inputSys.Disable();
-    // }
-
-    // private void Start()
-    // {
-    //     magnet = GetComponent<CharacterController>();
-    // }
-
-    // private void Update() {
-    //     float newX = transform.position.x + moveInput.x * moveSpeed * Time.deltaTime;
-    //     float newY = transform.position.y + moveInput.y * moveSpeed * Time.deltaTime;
-    //     transform.position = new Vector2 (newX,newY);
-    //     forceField.enabled = isOn;
-    // }
+    
 }
