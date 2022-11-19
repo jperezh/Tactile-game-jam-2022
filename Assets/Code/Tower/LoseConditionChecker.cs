@@ -8,14 +8,17 @@ namespace Code.Tower
         [SerializeField] private TowerArea warmTowerArea;
         [SerializeField] private TowerArea coldTowerArea;
 
+        public bool HasWarmTeamLost { get; private set; }
+        public bool HasColdTeamLost { get; private set; }
+        
         private void Update()
         {
             if (!water.IsRising) return;
 
             float waterLevel = water.GetLevel();
 
-            bool hasWarmTeamLost = HasLost(warmTowerArea, waterLevel);
-            bool hasColdTeamLost = HasLost(coldTowerArea, waterLevel);
+            HasWarmTeamLost = HasLost(warmTowerArea, waterLevel);
+            HasColdTeamLost = HasLost(coldTowerArea, waterLevel);
         }
 
         private bool HasLost(TowerArea towerArea, float waterLevel)
