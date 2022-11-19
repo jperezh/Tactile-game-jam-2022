@@ -20,6 +20,18 @@ namespace Code
         private float lastTimeJumped;
         private bool isSpawned;
 
+        public Color Color
+        {
+            get
+            {
+                return GetComponentInChildren<SpriteRenderer>().color;
+            }
+            set
+            {
+                GetComponentInChildren<SpriteRenderer>().color = value;
+            }
+        }
+
         private void Start()
         {
             controls = new Controls();
