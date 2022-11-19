@@ -15,6 +15,7 @@ namespace Code
         [SerializeField] private float maxVelocity = 10f;
 
         private const string GROUND_LAYER = "Ground";
+        private const string CHARACTER_LAYER = "Character";
         
         private Controls controls;
         private bool wasGrounded;
@@ -89,7 +90,7 @@ namespace Code
 
         private bool IsGrounded()
         {
-            LayerMask groundLayerMask = LayerMask.GetMask(GROUND_LAYER);
+            LayerMask groundLayerMask = LayerMask.GetMask(GROUND_LAYER, CHARACTER_LAYER);
             
             var raycastHit = Physics2D.Raycast(rigidbody.position, Vector2.down, groundingRaycastDistance, groundLayerMask);
             if (raycastHit.collider != null) return true;
