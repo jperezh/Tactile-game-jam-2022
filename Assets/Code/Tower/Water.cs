@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Water : MonoBehaviour
@@ -20,6 +19,8 @@ public class Water : MonoBehaviour
     {
         startTime = Time.time;
         spriteRenderer.material.SetFloat(visibility, 0f);
+        
+        wavesVisual.gameObject.SetActive(false);
         
         top = spriteRenderer.transform.position.y + ((spriteRenderer.sprite.texture.height / spriteRenderer.sprite.pixelsPerUnit ) / 2f) * transform.localScale.y;
         bottom = spriteRenderer.transform.position.y - ((spriteRenderer.sprite.texture.height / spriteRenderer.sprite.pixelsPerUnit ) / 2f) * transform.localScale.y;

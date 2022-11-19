@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -74,11 +75,14 @@ namespace Code
                 Jump();
                 lastTimeJumped = Time.time;
             }
+            
+            wasGrounded = isGrounded;
+        }
 
+        private void FixedUpdate()
+        {
             AddHorizontalForce();
             ClampVelocity();
-
-            wasGrounded = isGrounded;
         }
 
         public void Rumble(float duration, float lowFrequencyNormalizedSpeed, float highFrequencyNormalizedSpeed)
