@@ -250,6 +250,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3005063245730253360, guid: 4089012fb614f453da5cd54913121b22, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3005063245730253361, guid: 4089012fb614f453da5cd54913121b22, type: 3}
       propertyPath: m_Name
       value: WaterSurface (1)
