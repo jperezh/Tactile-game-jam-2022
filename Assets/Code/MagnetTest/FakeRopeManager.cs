@@ -7,9 +7,12 @@ public class FakeRopeManager : MonoBehaviour
     [SerializeField] private float defaultLerpSpeed;
 
     [SerializeField] private Vector2 positionXLimits;
+    [SerializeField] private Vector2 positionYLimits;
 
     [SerializeField] private Transform[] joints;
     [SerializeField] private Transform magnet;
+
+    
 
     private void Start()
     {
@@ -52,18 +55,35 @@ public class FakeRopeManager : MonoBehaviour
 
     private void LimitPosition()
     {
+
+        //limits x
         if (transform.position.x < positionXLimits.x)
         {
             var limitedPos = transform.position;
             limitedPos.x = positionXLimits.x;
-            transform.position = limitedPos;
+            transform.position = new Vector2(limitedPos.x,transform.position.y);
         }
 
         if (transform.position.x > positionXLimits.y)
         {
             var limitedPos = transform.position;
             limitedPos.x = positionXLimits.y;
-            transform.position = limitedPos;
+            transform.position = new Vector2(limitedPos.x,transform.position.y);
+        }
+
+        //limits y
+        if (transform.position.y < positionYLimits.x)
+        {
+            var limitedPos = transform.position;
+            limitedPos.y = positionYLimits.x;
+            transform.position = new Vector2(transform.position.x, limitedPos.y);
+        }
+
+        if (transform.position.y > positionYLimits.y)
+        {
+            var limitedPos = transform.position;
+            limitedPos.y = positionYLimits.y;
+            transform.position = new Vector2(transform.position.x, limitedPos.y);
         }
     }
 }
