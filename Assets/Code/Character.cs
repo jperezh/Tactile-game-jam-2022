@@ -9,6 +9,7 @@ namespace Code
         [SerializeField] private PlayerInput playerInput;
         [SerializeField] private float jumpForce = 500f;
         [SerializeField] private float groundingRaycastDistance = 5f;
+        [SerializeField] private float groundingRaycastWidth = 0.5f;
         [SerializeField] private float jumpCooldown = 0.5f;
         [SerializeField] private float moveForce = 1f;
         [SerializeField] private float maxVelocity = 10f;
@@ -34,6 +35,8 @@ namespace Code
 
         private void Start()
         {
+            DontDestroyOnLoad(gameObject);
+            
             controls = new Controls();
             controls.Enable();
             playerInput.user.AssociateActionsWithUser(controls);
@@ -87,9 +90,18 @@ namespace Code
         private bool IsGrounded()
         {
             LayerMask groundLayerMask = LayerMask.GetMask(GROUND_LAYER);
+            
             var raycastHit = Physics2D.Raycast(rigidbody.position, Vector2.down, groundingRaycastDistance, groundLayerMask);
-
-            return raycastHit.collider != null;
+            if (raycastHit.collider != null) return true;
+            
+            raycastHit = Physics2D.Raycast(rigidbody.position + Vector2.right * groundingRaycastWidth, Vector2.down, groundingRaycastDistance, groundLayerMask);
+            if (raycastHit.collider != null) return true;
+            
+            raycastHit = Physics2D.Raycast(rigidbody.position - Vector2.right * groundingRaycastWidth, Vector2.down, groundingRaycastDistance, groundLayerMask);
+            if (raycastHit.collider != null) return true;
+            
+            
+            return false;
         }
 
         private void Jump()
@@ -100,7 +112,15 @@ namespace Code
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(rigidbody.position, rigidbody.position + Vector2.down * groundingRaycastDistance);
+
+            var startPos = rigidbody.position;
+            Gizmos.DrawLine(startPos, startPos + Vector2.down * groundingRaycastDistance);
+
+            startPos = rigidbody.position + Vector2.right * groundingRaycastWidth;
+            Gizmos.DrawLine(startPos, startPos + Vector2.down * groundingRaycastDistance);
+            
+            startPos = rigidbody.position - Vector2.right * groundingRaycastWidth;
+            Gizmos.DrawLine(startPos, startPos + Vector2.down * groundingRaycastDistance);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Code.TeamSelector
 {
@@ -58,7 +59,7 @@ namespace Code.TeamSelector
 
         private void StartGame()
         {
-            
+            SceneManager.LoadScene(1);
         }
 
         private void OnStartGamePressStarted()
