@@ -15,13 +15,13 @@ public class ControlButton : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        activePivot.SetActive(true);
-        inactivePivot.SetActive(false);
+        activePivot.SetActive(false);
+        inactivePivot.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        activePivot.SetActive(false);
-        inactivePivot.SetActive(true);
+        activePivot.SetActive(true);
+        inactivePivot.SetActive(false);
     }
 
     private void MoveMagnet() {
