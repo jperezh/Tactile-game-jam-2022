@@ -6,7 +6,8 @@ public class Water : MonoBehaviour
     [SerializeField] private float risePerMinute = 1f;
 
     private float startTime;
-    
+    public bool IsRising => Time.time - startTime > timeBeforeRisingStarts;
+
     public void Initialize(float startTime)
     {
         this.startTime = startTime;
@@ -14,12 +15,10 @@ public class Water : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time - startTime <= timeBeforeRisingStarts)
+        if (IsRising)
         {
-            return;
+            Rise();
         }
-
-        Rise();
     }
 
     private void Rise()
@@ -33,9 +32,16 @@ public class Water : MonoBehaviour
     private void SetHeight(float height)
     {
         var scale = transform.localScale;
+        var bottom = transform.localPosition.y - scale.y / 2f;
+                     
         transform.localScale = new Vector3(scale.x, height, scale.z);
 
-        var position = transform.position;
-        transform.localPosition = new Vector3(position.x, height / 2f, position.z);
+        var localPosition = transform.localPosition;
+        transform.localPosition = new Vector3(localPosition.x, bottom + height / 2f, localPosition.z);
+    }
+
+    public float GetLevel()
+    {
+        return (transform.localScale.y / 2f) + transform.position.y;
     }
 }
