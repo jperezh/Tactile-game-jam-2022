@@ -25,7 +25,11 @@ namespace Code
             controls = new Controls();
             controls.Enable();
             playerInput.user.AssociateActionsWithUser(controls);
-            rigidbody.gameObject.SetActive(false);
+
+            if (!isSpawned)
+            {
+                rigidbody.gameObject.SetActive(false);
+            }
         }
 
         public void Spawn(Vector3 position)
