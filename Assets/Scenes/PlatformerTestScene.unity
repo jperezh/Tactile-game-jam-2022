@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9126982948732200586, guid: 6fd37700cd59e465591ca9b045ce6405, type: 3}
       propertyPath: spawnDuration
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9126982948732200586, guid: 6fd37700cd59e465591ca9b045ce6405, type: 3}
       propertyPath: throwDirection.x
@@ -1031,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9126982948732200586, guid: 6fd37700cd59e465591ca9b045ce6405, type: 3}
       propertyPath: spawnDuration
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9126982948732200586, guid: 6fd37700cd59e465591ca9b045ce6405, type: 3}
       propertyPath: throwDirection.x
