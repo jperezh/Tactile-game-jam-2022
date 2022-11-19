@@ -7,10 +7,14 @@ namespace Code
         [SerializeField] private Rigidbody2D rigidbody;
         [SerializeField] private float jumpForce = 500f;
         [SerializeField] private float groundingRaycastDistance = 5f;
+        [SerializeField] private float jumpCooldown = 0.5f;
+        [SerializeField] private float moveForce = 1f;
 
         private const string GROUND_LAYER = "Ground";
         
         private Controls controls;
+        private bool wasGrounded;
+        private float lastTimeJumped;
 
         private void Start()
         {
@@ -19,12 +23,30 @@ namespace Code
         }
         private void Update()
         {
-            bool isGrounded = IsGrounded();
-            
-            if (isGrounded && controls.InGame.Jump.WasPerformedThisFrame())
+            if (IsGrounded() && !IsJumpInCooldown() && controls.InGame.Jump.WasPerformedThisFrame())
             {
                 Jump();
+                lastTimeJumped = Time.time;
             }
+
+            AddHorizontalForce();
+            ClampVelocity();
+        }
+
+        private void ClampVelocity()
+        {
+            // rigidbody.velocity.
+        }
+
+        private void AddHorizontalForce()
+        {
+            var inputValue = controls.InGame.Move.ReadValue<float>();
+            rigidbody.AddForce(Vector2.right * inputValue * moveForce);
+        }
+
+        private bool IsJumpInCooldown()
+        {
+            return Time.time - lastTimeJumped < jumpCooldown;
         }
 
         private bool IsGrounded()
