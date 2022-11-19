@@ -20,9 +20,6 @@ public class WinConditionChecker : MonoBehaviour
     private float warmWinTimer;
     private float coldWinTimer;
     
-    public bool WarmHasWon { get; private set; }
-    public bool ColdHadWon { get; private set; }
-
     private void Start()
     {
         warmWinGoal.Occupied += OnWarmOccupied;
@@ -46,14 +43,14 @@ public class WinConditionChecker : MonoBehaviour
 
     private void Update()
     {
-        if (WarmHasWon || ColdHadWon) return;
+        if (HasWarmTeamWon || HasColdTeamWon) return;
         
         if (warmOccupied)
         {
             warmWinTimer -= Time.deltaTime;
             if (warmWinTimer <= 0f)
             {
-                WarmHasWon = true;
+                HasWarmTeamWon = true;
             }
         }
 
@@ -62,7 +59,7 @@ public class WinConditionChecker : MonoBehaviour
             coldWinTimer -= Time.deltaTime;
             if (coldWinTimer <= 0f)
             {
-                ColdHadWon = true;
+                HasColdTeamWon = true;
             }
         }
     }
