@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Code
 {
-    public class CharacterController : MonoBehaviour
+    public class Character : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rigidbody;
+        [SerializeField] private PlayerInput playerInput;
         [SerializeField] private float jumpForce = 500f;
         [SerializeField] private float groundingRaycastDistance = 5f;
         [SerializeField] private float jumpCooldown = 0.5f;
@@ -21,6 +23,7 @@ namespace Code
         {
             controls = new Controls();
             controls.Enable();
+            playerInput.user.AssociateActionsWithUser(controls);
         }
         private void Update()
         {
