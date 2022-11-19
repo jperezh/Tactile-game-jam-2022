@@ -9,12 +9,12 @@ public class PlatformScaler : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
 
-    private void Start() {
+    private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    private void Awake() {
+    private void Start() {
         var boxColliderSize = boxCollider.size;
         var size = spriteRenderer.size;
         

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlButtonTurnOff
       objectReference: {fileID: 0}
+    - target: {fileID: 1921009673636278644, guid: daa49c384a986754d90cb1a6fff37f5a, type: 3}
+      propertyPath: buttonAction
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1921009673636278647, guid: daa49c384a986754d90cb1a6fff37f5a, type: 3}
       propertyPath: m_RootOrder
       value: 0

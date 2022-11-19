@@ -14,7 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 632701aa65eb8fa459e2f349807f0a6f, type: 3}
     - target: {fileID: 1921009673636278640, guid: daa49c384a986754d90cb1a6fff37f5a, type: 3}
       propertyPath: m_Name
-      value: ControlButtonDown
+      value: ControlButtonOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921009673636278644, guid: daa49c384a986754d90cb1a6fff37f5a, type: 3}
+      propertyPath: buttonAction
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1921009673636278647, guid: daa49c384a986754d90cb1a6fff37f5a, type: 3}
       propertyPath: m_RootOrder
