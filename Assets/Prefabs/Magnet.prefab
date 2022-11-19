@@ -48,6 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7522dc85603ecc84ebf5e0226df8bed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeedHorizontal: 5
+  moveSpeedVertical: 5
+  forceField: {fileID: 5049984822585090298}
+  magneticStreng: -400
+  magneticDamping: 45
+  magnetRigidbody: {fileID: 5049984822048257518}
 --- !u!50 &5049984822048257518
 Rigidbody2D:
   serializedVersion: 4
@@ -96,8 +102,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049984822585090301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.99, z: 0}
-  m_LocalScale: {x: 3, y: 5, z: 1}
+  m_LocalPosition: {x: -0.0287, y: -2.0187, z: 0}
+  m_LocalScale: {x: 1.7186435, y: 4.9422526, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5049984822048257516}
@@ -145,7 +151,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18039215, g: 0.83039224, b: 0.94509804, a: 0}
+  m_Color: {r: 0.18039215, g: 0.83039224, b: 0.94509804, a: 0.2627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,13 +199,13 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_ForceMagnitude: -500
+  m_ForceMagnitude: 0
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_ForceSource: 0
   m_ForceTarget: 0
   m_ForceMode: 2
-  m_Drag: 70
+  m_Drag: 0
   m_AngularDrag: 0
 --- !u!1 &5049984823258062434
 GameObject:
