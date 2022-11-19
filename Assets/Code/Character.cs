@@ -18,15 +18,27 @@ namespace Code
         private Controls controls;
         private bool wasGrounded;
         private float lastTimeJumped;
+        private bool isSpawned;
 
         private void Start()
         {
             controls = new Controls();
             controls.Enable();
             playerInput.user.AssociateActionsWithUser(controls);
+            rigidbody.gameObject.SetActive(false);
         }
+
+        public void Spawn(Vector3 position)
+        {
+            rigidbody.transform.position = position;
+            rigidbody.gameObject.SetActive(true);
+            isSpawned = true;
+        }
+        
         private void Update()
         {
+            if (!isSpawned) return;
+            
             if (IsGrounded() && !IsJumpInCooldown() && controls.InGame.Jump.WasPerformedThisFrame())
             {
                 Jump();
