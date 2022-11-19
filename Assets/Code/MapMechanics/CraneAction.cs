@@ -3,5 +3,7 @@ public enum MagnetActions
     MoveLeft,
     MoveRight,
     MoveUp,
-    MoveDown
+    MoveDown,
+    On,
+    Off
 }
