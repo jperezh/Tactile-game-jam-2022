@@ -1843,6 +1843,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.449
       objectReference: {fileID: 0}
+    - target: {fileID: 1875634600650490059, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1981120450979825661, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1947,6 +1951,10 @@ PrefabInstance:
       propertyPath: magnetController
       value: 
       objectReference: {fileID: 1289895205}
+    - target: {fileID: 7706906719391679590, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8750688384327476737, guid: 474ab678ff6b548178356a7f558ef10c, type: 3}
       propertyPath: m_Name
       value: ControlRoom1
