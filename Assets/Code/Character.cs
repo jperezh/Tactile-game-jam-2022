@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Linq;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Haptics;
@@ -31,11 +30,11 @@ namespace Code
         private Animator animator;
         private AudioSource audioSource;
         
-        public AnimatorController AnimatorController
+        public RuntimeAnimatorController AnimatorController
         {
             get
             {
-                return (AnimatorController) GetComponentInChildren<Animator>().runtimeAnimatorController;
+                return GetComponentInChildren<Animator>().runtimeAnimatorController;
             }
             set
             {

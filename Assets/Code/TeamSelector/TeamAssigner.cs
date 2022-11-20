@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -94,14 +93,14 @@ namespace Code.TeamSelector
             if (team == Team.Warm)
             {
                 warmTeamPlayers.Add(playerInput);
-                AnimatorController animatorController = GetUnusedWarmColor();
+                var animatorController = GetUnusedWarmColor();
                 character.AnimatorController = animatorController;
                 RumbleOnColorAssigned(character);
             }
             else
             {
                 coldTeamPlayers.Add(playerInput);
-                AnimatorController animatorController = GetUnusedColdColor();
+                var animatorController = GetUnusedColdColor();
                 character.AnimatorController = animatorController;
                 RumbleOnColorAssigned(character);
             }
@@ -112,14 +111,14 @@ namespace Code.TeamSelector
             character.Rumble(0.1f, 0f, 0.75f);
         }
 
-        private AnimatorController GetUnusedWarmColor()
+        private RuntimeAnimatorController GetUnusedWarmColor()
         {
             var warmCharacters = warmTeamPlayers.Select(p => p.GetComponent<Character>());
             var unusedColor = teamColors.RedTeamAnimatorControllers.First(ac => warmCharacters.All(c => c.AnimatorController != ac));
             return unusedColor;
         }
         
-        private AnimatorController GetUnusedColdColor()
+        private RuntimeAnimatorController GetUnusedColdColor()
         {
             var coldCharacters = coldTeamPlayers.Select(p => p.GetComponent<Character>());
             var unusedColor = teamColors.BlueTeamAnimatorControllers.First(ac => coldCharacters.All(c => c.AnimatorController != ac));
